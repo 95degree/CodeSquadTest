@@ -14,6 +14,7 @@ public class WordMove {
     }
 
     private void MakeWordArray(String word) {
+        this.wordArray = new char[word.length()];
         for (int i = 0; i < word.length(); i++) {
             this.wordArray[i] = word.charAt(i);
         }
@@ -25,8 +26,8 @@ public class WordMove {
         return "L";
     }
 
-    private void print(){
-        for(char a : this.wordArray)
-            System.out.println(a);
+    private void print() {
+        for (char a : this.wordArray)
+            System.out.print(a);
     }
 }
