@@ -12,7 +12,8 @@ public class WordMove {
     }
 
     private void init(String word, int count) {
-        if (count < 0) this.direction = changeDirection();
+        if (count < 0)
+            this.direction = changeDirection();
         moveWordArray(Math.abs(count));
     }
 
@@ -23,7 +24,6 @@ public class WordMove {
     }
 
     private void moveWordArray(int count) {
-
         for (int i = 0; i < count; i++) {
             if (this.direction.equals("R"))
                 moveRight();
