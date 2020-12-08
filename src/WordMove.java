@@ -23,37 +23,27 @@ public class WordMove {
     }
 
     private void MoveWordArray(int count) {
-        switch (this.direction) {
 
-            case "R":
-                MoveRight(count);
-                break;
-
-            case "L":
-                MoveLeft(count);
-                break;
+        for (int i = 0; i < count; i++) {
+            if (this.direction.equals("R"))
+                MoveRight();
+            if (this.direction.equals("L"))
+                MoveLeft();
         }
     }
 
-    private void MoveRight(int count) {
-        String save;
-        for (int i = 0; i < count; i++) {
-            save = this.wordArray[this.length-1];
-            for (int j = this.length-1; j >0; j--)
-                this.wordArray[j] = this.wordArray[j - 1];
-            this.wordArray[0] = save;
-        }
+    private void MoveRight() {
+        String save = this.wordArray[this.length - 1];
+        for (int j = this.length - 1; j > 0; j--)
+            this.wordArray[j] = this.wordArray[j - 1];
+        this.wordArray[0] = save;
     }
 
-    private void MoveLeft(int count) {
-        String save;
-        for (int i = 0; i < count; i++) {
-            save = this.wordArray[0];
-            for (int j = 0; j < this.length - 1; j++)
-                this.wordArray[j] = this.wordArray[j + 1];
-            this.wordArray[this.length - 1] = save;
-        }
-
+    private void MoveLeft() {
+        String save = this.wordArray[0];
+        for (int j = 0; j < this.length - 1; j++)
+            this.wordArray[j] = this.wordArray[j + 1];
+        this.wordArray[this.length - 1] = save;
     }
 
     private void print() {
