@@ -2,10 +2,14 @@ import java.util.Scanner;
 
 public class InputSystem {
     Scanner scan;
-    private String[][] cubePlane;
+    final String[][] FIRSTPLANE = {
+            {"R", "R", "W"},
+            {"G", "C", "W"},
+            {"G", "B", "B"}
+    };
 
-    public InputSystem(String[][] cubePlane) {
-        this.cubePlane = cubePlane;
+    public InputSystem() {
+        printCube(FIRSTPLANE);
         init();
     }
 
@@ -16,8 +20,17 @@ public class InputSystem {
             System.out.print("CUBE >");
             command = scan.next();
             String[] commandArray = command.split("");
-            CubeMove move = new CubeMove(this.cubePlane,commandArray);
+            CubeMove move = new CubeMove(FIRSTPLANE, commandArray);
         }
         System.out.println("Bye~");
+    }
+
+    private void printCube(String[][] plane) {
+        for (String[] strings : plane) {
+            for (String string : strings) {
+                System.out.println(string + "\t");
+            }
+            System.out.println("\n");
+        }
     }
 }

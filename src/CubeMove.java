@@ -6,4 +6,10 @@ public class CubeMove {
         this.cubePlane = cubePlane;
         this.command = command;
     }
+    private void moveUp(){
+
+    }
+    private void moveDown(){
+
+    }
 }
