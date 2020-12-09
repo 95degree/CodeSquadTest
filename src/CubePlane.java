@@ -6,6 +6,12 @@ public class CubePlane {
                 {"G", "C", "W"},
                 {"G", "B", "B"}
         };
+        init(plane);
+    }
+
+    private void init(String[][] plane) {
+        printCube(plane);
+        InputSystem start = new InputSystem(plane);
     }
 
     private void printCube(String[][] plane) {
