@@ -16,7 +16,6 @@ public class InputOutputSystem {
     }
 
     private void init() {
-        String[][] cubePlane = STARTPLANE;
         scan = new Scanner(System.in);
         String command = "";
         while (!command.equalsIgnoreCase("q")) {
