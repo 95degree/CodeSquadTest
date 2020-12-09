@@ -3,19 +3,20 @@ import java.util.Scanner;
 public class InputOutputSystem {
     Scanner scan;
     CubeMove move;
-    final String[][] FIRSTPLANE = {
+    private String[][] plane;
+    final String[][] STARTPLANE = {
             {"R", "R", "W"},
             {"G", "C", "W"},
             {"G", "B", "B"}
     };
 
     public InputOutputSystem() {
-        printCube(FIRSTPLANE);
+        printCube(STARTPLANE);
         init();
     }
 
     private void init() {
-        String[][] cubePlane = FIRSTPLANE;
+        String[][] cubePlane = STARTPLANE;
         scan = new Scanner(System.in);
         String command = "";
         while (!command.equalsIgnoreCase("q")) {
@@ -26,16 +27,23 @@ public class InputOutputSystem {
         System.out.println("Bye~");
     }
 
-    private String[] splitCommand(String command) {
+    private void splitCommand(String command) {
         String[] commandArray = command.split("");
         for (int i = 1; i < commandArray.length; i++) {
-            if (commandArray[i].equals("`"))
+            if (commandArray[i].equals("`")) {
                 commandArray[i - 1] += commandArray[i];
+            }
+            inputCommandToMove(commandArray[i - 1]);
         }
-        return commandArray;
+    }
+    
+    private void inputCommandToMove(String splitCommand) {
+        move = new CubeMove(this.plane, splitCommand);
+        System.out.println(splitCommand);
+        printCube(move.getCubePlane());
     }
 
-    public void printCube(String[][] plane) {
+    private void printCube(String[][] plane) {
         for (String[] strings : plane) {
             for (String string : strings) {
                 System.out.println(string + "\t");

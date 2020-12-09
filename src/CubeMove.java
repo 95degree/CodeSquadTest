@@ -1,16 +1,13 @@
 public class CubeMove {
     private String[][] cubePlane;
 
-    public CubeMove(String[][] cubePlane, String[] command) {
+    public CubeMove(String[][] cubePlane, String command) {
         this.cubePlane = cubePlane;
         init(command);
     }
 
-    private void init(String[]command){
-        for (String s : command) move(s);
-    }
+    private void init(String command){
 
-    private void move(String command){
     }
 
     private void moveUp(){
