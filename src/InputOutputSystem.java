@@ -39,8 +39,9 @@ public class InputOutputSystem {
     
     private void inputCommandToMove(String splitCommand) {
         move = new CubeMove(this.plane, splitCommand);
+        this.plane = move.getCubePlane();
         System.out.println(splitCommand);
-        printCube(move.getCubePlane());
+        printCube(this.plane);
     }
 
     private void printCube(String[][] plane) {
