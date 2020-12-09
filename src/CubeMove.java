@@ -6,27 +6,44 @@ public class CubeMove {
         init(command);
     }
 
-    private void init(String command){
+    private void init(String command) {
+        switch (command) {
+            case "U":
+                moveRight(0);
+            case "U`":
+                moveLeft(0);
+            case "R":
+                moveUp(2);
+            case "R`":
+                moveDown(2);
+            case "L":
+                moveDown(0);
+            case "L'":
+                moveUp(0);
+            case "B":
+                moveLeft(2);
+            case "B`":
+                moveRight(2);
+        }
+    }
+
+    private void moveUp(int index) {
 
     }
 
-    private void moveUp(){
+    private void moveDown(int index) {
 
     }
 
-    private void moveDown(){
+    private void moveRight(int index) {
 
     }
 
-    private void moveRight(){
+    private void moveLeft(int index) {
 
     }
 
-    private void moveLeft(){
-
-    }
-
-    public String[][] getCubePlane(){
+    public String[][] getCubePlane() {
         return this.cubePlane;
     }
 }

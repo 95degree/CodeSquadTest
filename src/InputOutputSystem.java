@@ -38,10 +38,12 @@ public class InputOutputSystem {
     }
     
     private void inputCommandToMove(String splitCommand) {
-        move = new CubeMove(this.plane, splitCommand);
-        this.plane = move.getCubePlane();
-        System.out.println(splitCommand);
-        printCube(this.plane);
+        if(!splitCommand.equals("`")) {
+            move = new CubeMove(this.plane, splitCommand);
+            this.plane = move.getCubePlane();
+            System.out.println(splitCommand);
+            printCube(this.plane);
+        }
     }
 
     private void printCube(String[][] plane) {
