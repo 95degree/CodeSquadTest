@@ -49,9 +49,10 @@ public class InputOutputSystem {
     private void printCube(String[][] plane) {
         for (String[] strings : plane) {
             for (String string : strings) {
-                System.out.println(string + "\t");
+                System.out.print(string+" ");
             }
-            System.out.println("\n");
+            System.out.println();
         }
+        System.out.println();
     }
 }
