@@ -35,6 +35,7 @@ public class CubeMove {
             case "B":
                 moveRight(2);
                 break;
+
             case "B'":
                 moveLeft(2);
                 break;
