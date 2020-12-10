@@ -1,5 +1,4 @@
 public class CubePlane {
-    private static final String[] COLOR = {"B", "W", "O", "G", "Y", "R"};
     private static final int SIZE = 3;
     private String[][] cube;
 
