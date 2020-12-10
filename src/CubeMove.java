@@ -28,19 +28,31 @@ public class CubeMove {
     }
 
     private void moveUp(int index) {
-
+        String save = this.cubePlane[0][index];
+        this.cubePlane[0][index] = this.cubePlane[1][index];
+        this.cubePlane[1][index] = this.cubePlane[2][index];
+        this.cubePlane[2][index] = save;
     }
 
     private void moveDown(int index) {
-
+        String save = this.cubePlane[2][index];
+        this.cubePlane[2][index] = this.cubePlane[1][index];
+        this.cubePlane[1][index] = this.cubePlane[0][index];
+        this.cubePlane[0][index] = save;
     }
 
     private void moveRight(int index) {
-
+        String save = this.cubePlane[index][2];
+        this.cubePlane[index][2] = this.cubePlane[index][1];
+        this.cubePlane[index][1] = this.cubePlane[index][0];
+        this.cubePlane[index][0] = save;
     }
 
     private void moveLeft(int index) {
-
+        String save = this.cubePlane[index][0];
+        this.cubePlane[index][0] = this.cubePlane[index][1];
+        this.cubePlane[index][1] = this.cubePlane[index][2];
+        this.cubePlane[index][2] = save;
     }
 
     public String[][] getCubePlane() {
