@@ -1,1 +1,1 @@
-# CodeSquadTest
+# Step-3(루빅스 큐브 구현하기)
