@@ -39,11 +39,11 @@ public class InputOutputSystem {
         for (String s : commandArray) inputCommandToMove(s);
     }
 
-    private void inputCommandToMove(String splitCommand) {
-        if (!splitCommand.equals("'")) {
-            move = new CubeMove(this.plane, splitCommand);
+    private void inputCommandToMove(String splitedCommand) {
+        if (!splitedCommand.equals("'")) {
+            move = new CubeMove(this.plane, splitedCommand);
             this.plane = move.getCubePlane();
-            System.out.println(splitCommand);
+            System.out.println(splitedCommand);
             printCube(this.plane);
         }
     }
