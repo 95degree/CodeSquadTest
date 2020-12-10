@@ -13,6 +13,5 @@ public class CubePlane {
     public String[][] getCube() {
         return this.cube;
     }
-
 }
 
