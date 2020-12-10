@@ -1,5 +1,5 @@
 public class CubeMove {
-    private String[][] cubePlane;
+    private final String[][] cubePlane;
 
     public CubeMove(String[][] cubePlane, String command) {
         this.cubePlane = cubePlane;
