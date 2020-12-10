@@ -11,16 +11,19 @@ public class InputOutputSystem {
     };
 
     public InputOutputSystem() {
+        this.plane = STARTPLANE;
         printCube(STARTPLANE);
         init();
     }
 
     private void init() {
         scan = new Scanner(System.in);
-        String command = "";
-        while (!command.equalsIgnoreCase("q")) {
+        String command;
+        while (true) {
             System.out.print("CUBE >");
             command = scan.nextLine();
+            if (command.equalsIgnoreCase("q"))
+                break;
             splitCommand(command);
         }
         System.out.println("Bye~");
@@ -29,15 +32,15 @@ public class InputOutputSystem {
     private void splitCommand(String command) {
         String[] commandArray = command.split("");
         for (int i = 1; i < commandArray.length; i++) {
-            if (commandArray[i].equals("`")) {
+            if (commandArray[i].equals("'")) {
                 commandArray[i - 1] += commandArray[i];
             }
-            inputCommandToMove(commandArray[i - 1]);
         }
+        for (String s : commandArray) inputCommandToMove(s);
     }
-    
+
     private void inputCommandToMove(String splitCommand) {
-        if(!splitCommand.equals("`")) {
+        if (!splitCommand.equals("'")) {
             move = new CubeMove(this.plane, splitCommand);
             this.plane = move.getCubePlane();
             System.out.println(splitCommand);
@@ -48,7 +51,7 @@ public class InputOutputSystem {
     private void printCube(String[][] plane) {
         for (String[] strings : plane) {
             for (String string : strings) {
-                System.out.print(string+" ");
+                System.out.print(string + " ");
             }
             System.out.println();
         }

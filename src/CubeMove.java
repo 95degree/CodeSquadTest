@@ -1,5 +1,5 @@
 public class CubeMove {
-    private final String[][] cubePlane;
+    private String[][] cubePlane;
 
     public CubeMove(String[][] cubePlane, String command) {
         this.cubePlane = cubePlane;
@@ -9,21 +9,35 @@ public class CubeMove {
     private void init(String command) {
         switch (command) {
             case "U":
-                moveRight(0);
-            case "U`":
                 moveLeft(0);
+                break;
+
+            case "U'":
+                moveRight(0);
+                break;
+
             case "R":
                 moveUp(2);
-            case "R`":
+                break;
+
+            case "R'":
                 moveDown(2);
+                break;
+
             case "L":
                 moveDown(0);
+                break;
+
             case "L'":
                 moveUp(0);
+                break;
+
             case "B":
-                moveLeft(2);
-            case "B`":
                 moveRight(2);
+                break;
+            case "B'":
+                moveLeft(2);
+                break;
         }
     }
 
