@@ -9,8 +9,9 @@ public class OutputCube {
         this.cube = cube;
     }
 
-    private void printTopBottomArray(String[][] array){
+    private void printTopBottomArray(String[][] array) {
         for (String[] strings : array) {
+            System.out.printf("%6s", s);
             for (String string : strings) {
                 System.out.print(string + " ");
             }
@@ -19,14 +20,18 @@ public class OutputCube {
         System.out.println();
     }
 
-    private void printFrontRightLeftBackArray(){
-        System.out.printf("%3s",s);
-
+    private void printFrontRightLeftBackArray() {
+        System.out.printf("%3s", s);
+        System.out.println();
     }
 
-    public void printCube(){
-        System.out.printf("%6s",s);
+    public void printCube() {
         printTopBottomArray(cube.get("top"));
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        printFrontRightLeftBackArray();
+        printTopBottomArray(cube.get("bottom"));
     }
 
 }

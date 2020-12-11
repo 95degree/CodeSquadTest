@@ -9,6 +9,7 @@ public class CubePlane {
     private HashMap<String, String[][]> cube;
 
     public CubePlane(String command) {
+        cube = new HashMap<>();
         if (command.equals("1"))
             makeNormalPlane();
         if (command.equals("2"))
@@ -16,9 +17,9 @@ public class CubePlane {
     }
 
     private void makeNormalPlane() {
-        for (String s : DIRECTION)
+        //for (String s : DIRECTION)
             for (String a : COLOR)
-                this.cube.put(s, makeNormalColorArray(a));
+                makeNormalColorArray(a);
     }
 
     private void makeRandomPlane() {
