@@ -20,7 +20,7 @@ public class OutputCube {
     }
 
     private void printFrontRightLeftBackArray(){
-        System.out.printf("3s",s);
+        System.out.printf("%3s",s);
 
     }
 
