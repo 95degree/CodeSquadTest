@@ -1,12 +1,8 @@
 import java.util.HashMap;
 
 public class OutputCube {
-    private final HashMap<String, String[][]> cube;
+    //private final HashMap<String, String[][]> cube;
     private final String s = "";
-
-    public OutputCube(HashMap<String, String[][]> cube) {
-        this.cube = cube;
-    }
 
     private void printTopBottomArray(String[][] array) {
         for (String[] strings : array) {
@@ -37,7 +33,7 @@ public class OutputCube {
         System.out.printf("%2s", s);
     }
 
-    public void printCube() {
+    public void printCube(HashMap<String, String[][]> cube) {
         printTopBottomArray(cube.get("top"));
         printFrontRightLeftBackArray(cube.get("left"), cube.get("front"), cube.get("right"), cube.get("back"));
         printTopBottomArray(cube.get("bottom"));
