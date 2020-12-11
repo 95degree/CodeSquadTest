@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class CubePlane {
     private static final String[] COLOR = {"B", "W", "O", "G", "Y", "R"};
-    private static final String[] DIRECTION = {"top", "front", "right", "left", "back", "bottom"};
+    private final String[] DIRECTION = {"top", "front", "right", "left", "back", "bottom"};
     private static final int SIZE = 3;
     private HashMap<String, String[][]> cube;
 
@@ -60,4 +60,5 @@ public class CubePlane {
         return this.cube;
     }
 }
+
 
