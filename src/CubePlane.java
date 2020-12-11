@@ -12,7 +12,7 @@ public class CubePlane {
         if (command.equals("1"))
             makeNormalPlane();
         if (command.equals("2"))
-            makeShufflePlane();
+            makeRandomPlane();
     }
 
     private void makeNormalPlane() {
@@ -31,7 +31,7 @@ public class CubePlane {
         return colorPlane;
     }
 
-    private void makeShufflePlane() {
+    private void makeRandomPlane() {
         ArrayList<String> random = new ArrayList<>();
         for (String s : COLOR) {
             for (int j = 0; j < SIZE * SIZE; j++) {
@@ -39,10 +39,10 @@ public class CubePlane {
             }
         }
         Collections.shuffle(random);
-        makeShuffleColorArray(random);
+        makeRandomColorArray(random);
     }
 
-    private void makeShuffleColorArray(ArrayList<String> random) {
+    private void makeRandomColorArray(ArrayList<String> random) {
 
     }
 
