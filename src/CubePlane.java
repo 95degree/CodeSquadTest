@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class CubePlane {
@@ -14,25 +16,38 @@ public class CubePlane {
     }
 
     private void makeNormalPlane() {
-        for(String s : DIRECTION)
+        for (String s : DIRECTION)
             for (String a : COLOR)
-                this.cube.put(s,makeColorArray(a));
+                this.cube.put(s, makeNormalColorArray(a));
     }
 
-    private String[][] makeColorArray(String color) {
+    private String[][] makeNormalColorArray(String color) {
         String[][] colorPlane = new String[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 colorPlane[i][j] = color;
             }
+        }
         return colorPlane;
     }
 
     private void makeShufflePlane() {
+        ArrayList<String> random = new ArrayList<>();
+        for (String s : COLOR) {
+            for (int j = 0; j < SIZE * SIZE; j++) {
+                random.add(s);
+            }
+        }
+        Collections.shuffle(random);
+        makeShuffleColorArray(random);
+    }
+
+    private void makeShuffleColorArray(ArrayList<String> random) {
 
     }
 
-    public HashMap<String, String[][]> getCube(){
+
+    public HashMap<String, String[][]> getCube() {
         return this.cube;
     }
 }
