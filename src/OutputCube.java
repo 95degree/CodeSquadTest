@@ -38,5 +38,4 @@ public class OutputCube {
         printFrontRightLeftBackArray(cube.get("left"), cube.get("front"), cube.get("right"), cube.get("back"));
         printTopBottomArray(cube.get("bottom"));
     }
-
 }
