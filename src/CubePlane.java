@@ -6,7 +6,7 @@ public class CubePlane {
     private static final String[] COLOR = {"B", "W", "O", "G", "Y", "R"};
     private final String[] DIRECTION = {"top", "front", "right", "left", "back", "bottom"};
     private static final int SIZE = 3;
-    private HashMap<String, String[][]> cube;
+    private final HashMap<String, String[][]> cube;
 
     public CubePlane(String command) {
         cube = new HashMap<>();
@@ -17,9 +17,8 @@ public class CubePlane {
     }
 
     private void makeNormalPlane() {
-        //for (String s : DIRECTION)
-            for (String a : COLOR)
-                makeNormalColorArray(a);
+        for(int i=0; i< DIRECTION.length; i++)
+            this.cube.put(DIRECTION[i], makeNormalColorPlane(COLOR[i]));
     }
 
     private void makeRandomPlane() {
@@ -30,7 +29,7 @@ public class CubePlane {
             this.cube.put(s, makeRandomColorPlane(randomArray, count++));
     }
 
-    private String[][] makeNormalColorArray(String color) {
+    private String[][] makeNormalColorPlane(String color) {
         String[][] colorPlane = new String[SIZE][SIZE];
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {

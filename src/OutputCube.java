@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 public class OutputCube {
-    private final String[] DIRECTION = {"top", "front", "right", "left", "back", "bottom"};
     private final HashMap<String, String[][]> cube;
     private final String s = "";
 
