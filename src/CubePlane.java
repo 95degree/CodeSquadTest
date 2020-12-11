@@ -21,6 +21,11 @@ public class CubePlane {
                 this.cube.put(s, makeNormalColorArray(a));
     }
 
+    private void makeRandomPlane() {
+        for (String s : DIRECTION)
+            this.cube.put(s, makeRandomColorPlane());
+    }
+
     private String[][] makeNormalColorArray(String color) {
         String[][] colorPlane = new String[SIZE][SIZE];
         for (int i = 0; i < SIZE; i++) {
@@ -31,21 +36,26 @@ public class CubePlane {
         return colorPlane;
     }
 
-    private void makeRandomPlane() {
-        ArrayList<String> random = new ArrayList<>();
+    private String[][] makeRandomColorPlane() {
+        ArrayList<String> randomArray = new ArrayList<>();
         for (String s : COLOR) {
             for (int j = 0; j < SIZE * SIZE; j++) {
-                random.add(s);
+                randomArray.add(s);
             }
         }
-        Collections.shuffle(random);
-        makeRandomColorArray(random);
+        Collections.shuffle(randomArray);
+        return makeRandomColorArray(randomArray);
     }
 
-    private void makeRandomColorArray(ArrayList<String> random) {
-
+    private String[][] makeRandomColorArray(ArrayList<String> randomArray) {
+        String[][] colorPlane = new String[SIZE][SIZE];
+        for (int i = 0; i < DIRECTION.length; i++) {
+            for (int j = 0; j < SIZE * SIZE; j++) {
+                colorPlane[j / SIZE][j % SIZE] = randomArray.get(j + (SIZE * SIZE * i));
+            }
+        }
+        return colorPlane;
     }
-
 
     public HashMap<String, String[][]> getCube() {
         return this.cube;
