@@ -23,18 +23,44 @@ public class CubeMove {
 
     private void moveCommandFAndB(int num) {
         save = cube.get("top")[num];
-        cube.get("top")[num] = cube.get("left")[num];
-        cube.get("left")[num] = cube.get("bottom")[num];
-        cube.get("bottom")[num] = cube.get("right")[num];
-        cube.get("right")[num] = save;
+
+        changeMatrix("top", "left", num);
+
+        for (int i = 0; i < cube.get("top").length; i++)
+            cube.get("left")[i][num] = cube.get("bottom")[2 - num][i];
+
+        changeMatrix("bottom", "right", 2 - num);
+
+        for (int i = 0; i < cube.get("right").length; i++)
+            cube.get("right")[i][2-num] = save[i];
     }
 
     private void moveBackCommandFAndB(int num) {
         save = cube.get("top")[num];
-        cube.get("top")[num] = cube.get("right")[num];
-        cube.get("right")[num] = cube.get("bottom")[num];
-        cube.get("bottom")[num] = cube.get("left")[num];
-        cube.get("left")[num] = save;
+
+        changeBackMatrix("top", "right", num);
+
+        for (int i = 0; i < cube.get("right").length; i++)
+            cube.get("right")[i][2 - num] = cube.get("bottom")[num][i];
+
+        changeBackMatrix("bottom", "left", 2 - num);
+
+        for (int i = 0; i < cube.get("left").length; i++)
+            cube.get("left")[num][i] = save[i];
+    }
+
+    private void changeMatrix(String row, String column, int num) {
+        String[] rotateSave = new String[cube.get(row).length];
+        for (int i = 0; i < cube.get(row).length; i++)
+            rotateSave[i] = cube.get(column)[2-i][num];
+        cube.get(row)[num] = rotateSave;
+    }
+
+    private void changeBackMatrix(String row, String column, int num) {
+        String[] rotateSave = new String[cube.get(row).length];
+        for (int i = 0; i < cube.get(row).length; i++)
+            rotateSave[i] = cube.get(column)[2-i][num];
+        cube.get(row)[2 - num] = rotateSave;
     }
 
     private void moveCommandRAndL(int num) {
@@ -45,7 +71,7 @@ public class CubeMove {
 
     private void moveBackCommandRAndL(int num) {
         for (int i = 0; i < cube.get("back").length; i++)
-            save[i] = cube.get("back")[3 - num][i];
+            save[i] = cube.get("back")[i][2-num];
         moveDown(num);
     }
 
@@ -67,27 +93,27 @@ public class CubeMove {
 
     private void moveUp(int num) {
         for (int i = 0; i < 2; i++) {
-            cube.get(stringForMove[i])[num][0] = cube.get(stringForMove[i + 1])[num][0];
-            cube.get(stringForMove[i])[num][1] = cube.get(stringForMove[i + 1])[num][1];
-            cube.get(stringForMove[i])[num][2] = cube.get(stringForMove[i + 1])[num][2];
+            cube.get(stringForMove[i])[0][num] = cube.get(stringForMove[i + 1])[0][num];
+            cube.get(stringForMove[i])[1][num] = cube.get(stringForMove[i + 1])[1][num];
+            cube.get(stringForMove[i])[2][num] = cube.get(stringForMove[i + 1])[2][num];
         }
 
         for (int i = 0; i < cube.get("bottom").length; i++) {
-            cube.get("bottom")[num][i] = cube.get("back")[3 - num][i];
-            cube.get("back")[3 - num][i] = save[i];
+            cube.get("bottom")[i][num] = cube.get("back")[i][2-num];
+            cube.get("back")[i][2-num] = save[i];
         }
     }
 
     private void moveDown(int num) {
         for (int i = 0; i < 2; i++) {
-            cube.get(stringForMove[i + 1])[num][0] = cube.get(stringForMove[i])[num][0];
-            cube.get(stringForMove[i + 1])[num][1] = cube.get(stringForMove[i])[num][1];
-            cube.get(stringForMove[i + 1])[num][2] = cube.get(stringForMove[i])[num][2];
+            cube.get(stringForMove[i + 1])[0][num] = cube.get(stringForMove[i])[0][num];
+            cube.get(stringForMove[i + 1])[1][num] = cube.get(stringForMove[i])[1][num];
+            cube.get(stringForMove[i + 1])[2][num] = cube.get(stringForMove[i])[2][num];
         }
 
         for (int i = 0; i < cube.get("back").length; i++) {
-            cube.get("back")[3 - num][i] = cube.get("bottom")[num][i];
-            cube.get("front")[num][i] = save[i];
+            cube.get("back")[i][num] = cube.get("bottom")[i][2-num];
+            cube.get("bottom")[i][2-num] = save[i];
         }
     }
 
@@ -95,4 +121,3 @@ public class CubeMove {
         return this.cube;
     }
 }
-

@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 public class OutputCube {
-    //private final HashMap<String, String[][]> cube;
     private final String s = "";
 
     private void printTopBottomArray(String[][] array) {
