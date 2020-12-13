@@ -38,15 +38,15 @@ public class CubeMove {
     private void moveBackCommandFAndB(int num) {
         save = cube.get("top")[num];
 
-        changeBackMatrix("top", "right", num);
+        changeMatrix("top", "right", num);
 
         for (int i = 0; i < cube.get("right").length; i++)
             cube.get("right")[i][2 - num] = cube.get("bottom")[num][i];
 
-        changeBackMatrix("bottom", "left", 2 - num);
+        changeMatrix("bottom", "left", 2-num);
 
         for (int i = 0; i < cube.get("left").length; i++)
-            cube.get("left")[num][i] = save[i];
+            cube.get("left")[i][num] = save[i];
     }
 
     private void changeMatrix(String row, String column, int num) {
@@ -54,13 +54,6 @@ public class CubeMove {
         for (int i = 0; i < cube.get(row).length; i++)
             rotateSave[i] = cube.get(column)[2-i][num];
         cube.get(row)[num] = rotateSave;
-    }
-
-    private void changeBackMatrix(String row, String column, int num) {
-        String[] rotateSave = new String[cube.get(row).length];
-        for (int i = 0; i < cube.get(row).length; i++)
-            rotateSave[i] = cube.get(column)[2-i][num];
-        cube.get(row)[2 - num] = rotateSave;
     }
 
     private void moveCommandRAndL(int num) {
@@ -120,4 +113,25 @@ public class CubeMove {
     public HashMap<String, String[][]> getCube() {
         return this.cube;
     }
+
+
+
+    private void rotateRight(String direction) {
+        String[] matrixSave = cube.get(direction)[0];
+
+        rightRotate(direction,0);
+
+        for (int i = 0; i < 3; i++)
+            cube.get(direction)[i][0] = cube.get(direction)[2][i];
+
+        rightRotate(direction,2);
+
+        for (int i = 0; i < 3; i++)
+            cube.get(direction)[i][2] = matrixSave[i];
+    }
+
+    private void rightRotate(String direction,int num){
+            for(int i=0; i<3; i++)
+                cube.get(direction)[num][i] = cube.get(direction)[i][num];
+        }
 }
