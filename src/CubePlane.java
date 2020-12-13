@@ -60,5 +60,3 @@ public class CubePlane {
         return this.cube;
     }
 }
-
-
