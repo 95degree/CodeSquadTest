@@ -7,11 +7,11 @@ public class WordMove {
         this.wordArray = word.split("");
         this.direction = direction.toUpperCase();
         this.length = word.length();
-        init(word, count);
+        init(count);
         print();
     }
 
-    private void init(String word, int count) {
+    private void init(int count) {
         if (count < 0)
             this.direction = changeDirection();
         moveWordArray(Math.abs(count));
